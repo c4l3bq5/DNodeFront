@@ -1,7 +1,7 @@
 /* DentalNode landing · estilos. Tema: [data-theme="light"|"dark"] en <html> */
 :root {
   --lg: url("/logo.svg");
-  --ic: url("/icon.svg");
+  --hlg: url("/HoriLogo.svg");
   --bg: #FBF8F2;
   --sf: #fff;
   --mint: #E6F4EE;
@@ -168,11 +168,11 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   top: calc(14px + env(safe-area-inset-top, 0px));
-  width: min(1320px, calc(100% - 32px));
+  width: min(1560px, calc(100% - 32px));
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 10px 14px 10px 20px;
+  gap: 28px;
+  padding: 12px 18px 12px 26px;
   border-radius: 60px;
   background: var(--nav);
   backdrop-filter: blur(14px);
@@ -180,14 +180,29 @@ nav {
   color: var(--ink);
 }
 
+/* Logo horizontal en escritorio */
 nav .lg {
-  width: 132px;
-  height: 44px;
+  width: 215px;
+  height: 50px;
+  background-image: var(--hlg);
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+:root[data-theme=dark] nav .lg {
+  filter: brightness(0) invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) nav .lg {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .nl {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   margin: 0 auto;
 }
 
@@ -231,7 +246,7 @@ nav .b2 {
 .nr {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .nav-menu,
@@ -888,9 +903,10 @@ footer .bt {
 }
 
 footer .bt .lg {
-  width: 190px;
-  height: 66px;
-  margin: 0 auto 40px;
+  width: 140px;
+  height: 120px;
+  background-image: url("/logo-dark.svg");
+  margin: 0 auto 32px;
 }
 
 footer .bt .w {
@@ -915,19 +931,18 @@ footer .bt .w {
   nav {
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 8px 10px 8px 14px;
+    padding: 8px 12px 8px 16px;
     border-radius: 28px;
     gap: 8px;
   }
 
+  /* En pantallas comprimidas usa el logo apilado (logo.svg / logo-dark.svg) a mayor tamaño */
   nav .lg {
-    width: 38px;
-    height: 38px;
-    background-image: var(--ic);
-  }
-
-  :root[data-theme=dark] nav .lg {
-    filter: brightness(0) invert(1);
+    width: 78px;
+    height: 64px;
+    background-image: var(--lg);
+    background-size: contain;
+    filter: none !important;
   }
 
   .nr {
@@ -1007,7 +1022,7 @@ footer .bt .w {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 84px 16px 22px;
+    padding: 104px 16px 22px;
   }
 
   .hi {
@@ -1087,12 +1102,6 @@ footer .bt .w {
   }
 }
 
-@media (prefers-color-scheme: dark) and (max-width: 900px) {
-  :root:not([data-theme=light]) nav .lg {
-    filter: brightness(0) invert(1);
-  }
-}
-
 @media (max-width: 480px) {
   .st {
     flex-direction: row;
@@ -1149,7 +1158,7 @@ footer .bt .w {
   }
 
   footer .bt .lg {
-    width: 150px;
-    height: 52px;
+    width: 115px;
+    height: 98px;
   }
 }

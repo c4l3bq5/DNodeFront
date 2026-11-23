@@ -268,7 +268,7 @@ const Faq = () => (
 const Footer = () => (
   <footer>
     <div className="t"><div className="w">
-      <div className="r"><Logo style={{ width: 144, height: 48 }} /><a className="btn b1" href="#planes">Probar 14 días gratis</a></div>
+      <div className="r"><Logo style={{ width: 96, height: 84 }} /><a className="btn b1" href="#planes">Probar 14 días gratis</a></div>
       <div className="fl">
         <h3>Una clínica dental completamente digital</h3>
         <ul><h4>Producto</h4><li><a href="#como">Cómo funciona</a></li><li><a href="#funciones">Funciones</a></li><li><a href="#planes">Planes</a></li></ul>
@@ -276,7 +276,7 @@ const Footer = () => (
         <ul><h4>Legal</h4><li><a href="#">Privacidad</a></li><li><a href="#">Términos de servicio</a></li></ul>
       </div>
     </div></div>
-    <div className="bt"><Logo className="inv" /><div className="w"><span>© 2026 DentalNode</span><span>Español</span></div></div>
+    <div className="bt"><Logo /><div className="w"><span>© 2026 DentalNode</span><span>Español</span></div></div>
   </footer>
 )
 
