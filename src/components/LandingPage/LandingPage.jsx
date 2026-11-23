@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Sun, Moon, Play, Pause } from 'lucide-react'
+import { Sun, Moon, Play, Pause, Menu, X } from 'lucide-react'
 import NetworkBackground from '../NetworkBackground/NetworkBackground'
 import './LandingPage.css'
 
@@ -37,10 +37,10 @@ const MODULES = [
   ['IA de apoyo', ['Te ayuda a detectar a tiempo', 'Hallazgos para que los revises', 'La decisión clínica sigue siendo tuya']],
 ]
 const CYCLE = [
-  ['Agendar', 'Tu agenda, sincronizada', 'Citas en Google Calendar y recordatorios automáticos por correo, sin cruces de horarios.', { top: -34, left: '50%', transform: 'translateX(-50%)' }],
-  ['Atender', 'Cada paciente, en su ficha', 'Expediente digital con tratamientos e historial, listo en el consultorio.', { top: '50%', right: -76, transform: 'translateY(-50%)' }],
-  ['Cobrar', 'Presupuestos y cobros a tiempo', 'Del presupuesto al cobro y a la factura, sin perder el hilo.', { bottom: -34, left: '50%', transform: 'translateX(-50%)' }],
-  ['Reponer', 'Inventario bajo control', 'Kárdex de egresos por doctor y alertas antes de quedarte sin material.', { top: '50%', left: -76, transform: 'translateY(-50%)' }],
+  ['Agendar', 'Tu agenda, sincronizada', 'Citas en Google Calendar y recordatorios automáticos por correo, sin cruces de horarios.'],
+  ['Atender', 'Cada paciente, en su ficha', 'Expediente digital con tratamientos e historial, listo en el consultorio.'],
+  ['Cobrar', 'Presupuestos y cobros a tiempo', 'Del presupuesto al cobro y a la factura, sin perder el hilo.'],
+  ['Reponer', 'Inventario bajo control', 'Kárdex de egresos por doctor y alertas antes de quedarte sin material.'],
 ]
 const HUB = [
   ['Agenda', 100, 60, 'Cita confirmada', ['Google Calendar', 'Recordatorio por correo', 'Ficha del paciente']],
@@ -64,18 +64,33 @@ const FAQS = [
 const Logo = ({ className = '', style }) => <i className={`lg ${className}`} style={style} role="img" aria-label="DentalNode" />
 
 function Navbar({ theme, toggle }) {
+  const [open, setOpen] = useState(false)
   const dark = theme === 'dark'
   return (
-    <nav>
-      <a href="#" aria-label="DentalNode"><Logo /></a>
+    <nav className={open ? 'open' : ''}>
+      <a href="#" aria-label="DentalNode" onClick={() => setOpen(false)}><Logo /></a>
       <div className="nl">{NAV.map(([h, t]) => <a key={h} href={h}>{t}</a>)}</div>
       <div className="nr">
         <button className="tb" onClick={toggle} aria-label={dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}>
           {dark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
-        <a className="btn b2" href="https://app.dentalnode.com">Iniciar sesión</a>
-        <a className="btn b1" href="#planes">Probar 14 días gratis</a>
+        <a className="btn b2 nav-login" href="https://app.dentalnode.com">Iniciar sesión</a>
+        <a className="btn b1 nav-cta" href="#planes">Probar gratis</a>
+        <button
+          className="tb nav-menu"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={open}
+        >
+          {open ? <X size={18} /> : <Menu size={18} />}
+        </button>
       </div>
+      {open && (
+        <div className="nm">
+          {NAV.map(([h, t]) => <a key={h} href={h} onClick={() => setOpen(false)}>{t}</a>)}
+          <a href="https://app.dentalnode.com" onClick={() => setOpen(false)}>Iniciar sesión</a>
+        </div>
+      )}
     </nav>
   )
 }
@@ -138,7 +153,7 @@ function Cycle() {
         <circle ref={arc} cx="260" cy="260" r="230" fill="none" stroke="var(--ink)" strokeWidth="2" strokeDasharray="1445" strokeDashoffset="1445" transform="rotate(-90 260 260)" />
         <circle ref={dot} cx="260" cy="30" r="9" fill="var(--btn)" />
       </svg>
-      {CYCLE.map(([l, , , pos], i) => <span key={l} className={'lb' + (i === s ? ' on' : '')} style={pos}>{l}</span>)}
+      {CYCLE.map(([l], i) => <span key={l} className={`lb lb-${i}${i === s ? ' on' : ''}`}>{l}</span>)}
       <div className="ct" key={s}><h3>{CYCLE[s][1]}</h3><p>{CYCLE[s][2]}</p></div>
     </div></div></div>
   )
@@ -253,7 +268,7 @@ const Faq = () => (
 const Footer = () => (
   <footer>
     <div className="t"><div className="w">
-      <div className="r"><Logo style={{ width: 60, height: 60 }} /><a className="btn b1" href="#planes">Probar 14 días gratis</a></div>
+      <div className="r"><Logo style={{ width: 144, height: 48 }} /><a className="btn b1" href="#planes">Probar 14 días gratis</a></div>
       <div className="fl">
         <h3>Una clínica dental completamente digital</h3>
         <ul><h4>Producto</h4><li><a href="#como">Cómo funciona</a></li><li><a href="#funciones">Funciones</a></li><li><a href="#planes">Planes</a></li></ul>
