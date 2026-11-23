@@ -50,12 +50,15 @@ const HUB = [
 ]
 const PLAN = ['Agenda sincronizada con Google Calendar', 'Recordatorios automáticos por correo', 'Fichas clínicas de pacientes', 'Presupuestos y cobros', 'Facturas', 'Inventario con kárdex de egresos', 'IA de apoyo a la detección', 'Soporte técnico']
 const FAQS = [
-  ['¿Tengo que instalar algo?', 'No. DentalNode es 100% online: entras desde el navegador, sin descargas ni instalaciones.'],
-  ['¿Se sincroniza con Google Calendar?', 'Sí. Tu agenda queda vinculada a Google Calendar para que las citas se vean en los dos lugares y no se crucen.'],
-  ['¿Los pacientes reciben recordatorios?', 'Sí, DentalNode envía recordatorios automáticos por correo para reducir las citas olvidadas.'],
-  ['¿Cómo controlo el inventario?', 'Con un kárdex de egresos: cada material que sale queda registrado por doctor, así sabes qué se usó y cuándo reponer.'],
-  ['¿Qué hace la IA?', 'Te apoya en la detección para que revises hallazgos a tiempo. La decisión clínica siempre es del odontólogo.'],
-  ['¿Puedo probarlo antes de pagar?', 'Sí, tienes 14 días de prueba gratis.'],
+  ['¿Qué incluye el plan Consultorio y para quién está pensado?', 'El plan Consultorio está diseñado para odontólogos independientes o consultorios pequeños de 1 a 3 doctores. Incluye gestión digital de pacientes, agenda vinculada a Google Calendar, fichas clínicas, presupuestos, contratos digitales, control de cobros e inventario básico. Todo lo que necesitas para digitalizar tu práctica sin complejidad.'],
+  ['¿Qué ventajas ofrece el plan Clínica?', 'El plan Clínica está pensado para centros odontológicos en crecimiento. Permite administrar múltiples sucursales y sillones con odontólogos ilimitados. Incluye roles de acceso avanzados (Director, Odontólogo, Recepción), alertas automáticas de stock mínimo, reportes detallados de productividad e ingresos por doctor, recordatorios automáticos por correo Gmail y soporte técnico prioritario.'],
+  ['¿Cómo funciona la sincronización con Google Calendar?', 'Tu agenda queda vinculada a Google Calendar en tiempo real, con vista por médico y consultorio. Las citas se ven en ambos lugares sin cruces de horarios ni duplicidades, y puedes consultar tu jornada desde la app que ya usas.'],
+  ['¿Cómo me ayuda el módulo de Inventario y Kárdex?', 'El módulo te da control total de tus materiales. Supervisa el stock disponible con alertas de stock mínimo para evitar desabastecimientos. El Kárdex de egresos registra cada salida de material vinculada al odontólogo con fecha exacta, facilitando la auditoría de materiales utilizados por profesional.'],
+  ['¿Cómo funcionan los recordatorios por correo Gmail?', 'El sistema envía notificaciones automáticas por correo electrónico a los pacientes antes de su consulta, confirmando la fecha y hora. Esto ayuda a reducir las ausencias y retrasos sin que tengas que hacer nada manualmente.'],
+  ['¿Los datos de mis pacientes están protegidos y respaldados?', 'Totalmente. Empleamos encriptación segura SSL/TLS, autenticación JWT y servidores seguros de alta disponibilidad con copias de seguridad automáticas diarias. Solo tu clínica tiene acceso exclusivo a tu información.'],
+  ['¿Puedo probar el sistema antes de pagar?', '¡Por supuesto! Cuentas con 14 días de prueba gratuita con acceso a todas las funcionalidades principales, sin necesidad de ingresar una tarjeta de crédito ni adquirir compromisos forzosos.'],
+  ['¿Funciona desde mi celular, tablet o laptop?', 'Sí. DentalNode es una plataforma 100% online que funciona en cualquier dispositivo a través del navegador web, ya sean computadoras, laptops, tablets o teléfonos celulares, sin necesidad de descargas ni instalaciones.'],
+  ['¿Qué tipo de soporte técnico ofrecen?', 'Ofrecemos soporte técnico instantáneo vía WhatsApp y correo electrónico para ayudarte con la configuración inicial, la resolución de dudas y la puesta en marcha de la plataforma.'],
 ]
 
 const Logo = ({ className = '', style }) => <i className={`lg ${className}`} style={style} role="img" aria-label="DentalNode" />
